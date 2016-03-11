@@ -1,0 +1,37 @@
+<div class="pub-page-header">
+  <div class="row">
+    <div class="medium-12 columns">
+      <h1><i class="fa fa-beer"></i> Search for a Beer</h1>
+      <p>We thought you needed a drink.</p>
+    </div>
+  </div>
+</div>
+
+<%= render 'partials/search' %>
+
+
+<% if @results %>
+  <% @results.each do |r| %>
+
+  <div class="row search-result">
+    <div class="medium-2 columns">
+      <%= link_to (image_tag r.photo), beer_path(r) %>
+    </div>
+    <div class="medium-6 columns">
+     <%= link_to r.name, beer_path(r)%><br>
+      <%= r.category %><br>
+      <%= r.percentage %>%<br>
+      <%= r.brewery %> 
+    </div>
+    <div class="medium-4 columns">
+    Average Rating: <%= stars(r.average_rating) %>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+
+
+
+      
+  </div>
+</div>

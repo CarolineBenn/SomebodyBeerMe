@@ -1,0 +1,70 @@
+<div class="hide-for-large-up">
+  
+  <nav class="pushy pushy-left">
+    <ul>
+    <% if !current_user %>
+      <%= link_to 'Login', user_session_path%>
+      <%= link_to 'Sign Up', new_user_registration_path%>
+    <% end %>
+      <%= link_to 'Search for Beer', beers_search_path %>
+      <%= link_to 'Browse Beers', beers_path %>
+      <%= link_to 'Find Pubs', pubs_path %>
+      <% if current_user %>
+        <%= link_to 'View Profile', user_path(current_user.id) %>
+        <%= link_to 'Edit Profile', edit_profile_path %>
+        <%= link_to 'Settings', edit_user_registration_path %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      <% end %>
+    </ul>
+  </nav>
+
+  <div class="site-overlay"></div>
+  
+  <div class="pushy-menu">
+    <div class="row">
+      <div class="small-2 columns"style="z-index: 1000;">
+        <div class="menu-btn" style="float: left">
+          <a class="list-icon">&#9776;</a>
+        </div>
+      </div>
+      <div class="small-10 columns">
+       <h1 class="title"><a href="/">Somebody Beer Me</a></h1> 
+      </div>         
+    </div>
+  </div> <!-- # End pushy-menu -->
+</div> <!-- # End hide-for-large-up -->
+
+
+
+<div class="show-for-large-up">
+  <nav class="top-bar" data-topbar role="navigation">
+
+    <ul class="title-area">
+      <li class="name">
+        <a href="/"><h1 class="title">Somebody Beer Me</h1></a>
+      </li>
+    </ul>
+    
+    <section class="top-bar-section">
+      <ul class="right">
+      <% if current_user %>
+        <span>Hello <strong><%= link_to (current_user.name), user_path(current_user.id), class: "user-first-name"  %></strong></span>
+        <%= link_to 'Browse Beers', beers_path %>
+        <%= link_to 'View Pubs', pubs_path %>
+        <%= link_to 'Search for Beer', beers_search_path %>
+      <% end %>
+
+        <% if !current_user %>
+          <%= link_to 'Sign Up', new_user_registration_path  %>
+          <%= link_to 'Login', user_session_path%>
+        <% end %>
+
+        <% if current_user %>
+
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        <% end %>
+      </ul>
+    </section>
+
+  </nav>
+</div>

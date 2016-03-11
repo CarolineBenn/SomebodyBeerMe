@@ -1,0 +1,111 @@
+<div class="pub-page-header">
+  <div class="row">
+    <div class="medium-12 columns">
+      <h1><i class="fa fa-map-marker"></i> Pubs Near You</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-bottom: 2em;">
+  <div class="medium-12 columns">
+    <div id="map" style="display: none;">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="medium-12 columns">
+    <% if @spots %>
+
+      <% @spots.each do |s| %>
+        <% # if s.archive == false
+         %>
+          <div class="row">
+
+            <div class="medium-3 columns">
+              <% # if s.photos[0] 
+                %>
+                <%= link_to (image_tag Pub.find_by(google_id: s.id).photo), pub_path(Pub.find_by(google_id: s.id))
+                %>
+              <% # else 
+              %>
+                &nbsp;
+              <% # end 
+              %>
+            </div>
+
+            <div class="medium-6 columns">
+              <%= # s.inspect 
+              %>
+             
+              <strong><%= link_to s.name, pub_path(Pub.find_by(google_id: s.id)) %></strong>
+              <br>
+              <%= s.vicinity %>
+              <br>
+              Lat: <%= s.lat %>
+              <br>
+              Lng: <%= s.lng %>
+              <br>
+            </div>
+
+            <div class="medium-3 columns">      
+              &nbsp;
+            </div>
+
+          </div>
+        <hr> 
+
+        <% # end 
+        %>
+      <% end %>
+
+      <% else %>
+      <div class="medium-4 medium-centered columns">
+        <%= form_tag('/pubs/nearby', ) do %>
+          <%= hidden_field_tag :lat %>
+          <%= hidden_field_tag :lng %>
+          <%= submit_tag("Find Nearby Pubs") %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="medium-12 columns">
+    <strong>
+     
+    </strong>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $(document).on('ready page:load', function () {
+
+    // disable button temporarily on page load
+    $('input[type="submit"]').addClass('button find-pub').attr('disabled','disabled');
+    
+    // Check to see if the browser supports the GeoLocation API.
+    if (navigator.geolocation) {
+      // Get the location
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+
+        $('input[name="lat"]').val(lat);
+        $('input[name="lng"]').val(lng);
+
+        $('input[type="submit"]').removeAttr('disabled');
+      });
+
+    } else {
+      // Print out a message to the user.
+      document.write('Your browser does not support GeoLocation');
+    }
+
+    });
+</script>

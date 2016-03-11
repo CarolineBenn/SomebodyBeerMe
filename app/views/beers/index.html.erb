@@ -1,0 +1,28 @@
+<div class="pub-page-header">
+  <div class="row">
+    <div class="medium-12 columns">
+      <h1>All Beers</h1>
+      <p>- Witty Subtitle -</p>
+    </div>  
+  </div>
+</div>
+
+<%= render 'partials/search' %>
+
+<% @beers.each do |r| %>
+<div class="row search-result">
+  <div class="medium-2 columns">
+    <%= link_to (image_tag r.photo), beer_path(r) %>
+  </div>
+  <div class="medium-6 columns">
+    <p><strong><%= link_to r.name, beer_path(r)%></strong></p>
+    <p class="beer-category"><%= r.category %></p>
+    <p><%= r.percentage %>%</p>
+    <p><%= r.brewery %> </p>
+  </div>
+  <div class="medium-4 columns">
+  Average Rating: <%= stars(r.average_rating) %>
+  </div>
+</div>
+<% end %>
+

@@ -1,0 +1,37 @@
+<div class="pub-page-header">
+  <div class="row">
+    <div class="medium-12 columns">
+      <h1>Add A Beer</h1>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="medium-6 medium-centered columns">
+
+
+  
+    <%= form_for @beer do |f| %>
+      <%= f.text_field :name, placeholder: 'Name' %>
+      <%= f.number_field :percentage, step: 0.1, placeholder: 'Percentage' %>
+      <%= f.text_field :brewery, placeholder: 'Brewery' %>
+      <%= f.text_field :photo, placeholder: 'Photo URL  ' %>
+      <%= f.collection_select :category, @categories, :to_s, :to_s, include_blank: 'Please select:'
+      # http://stackoverflow.com/questions/20122257/ror-collection-select-from-array 
+      %>
+      <hr>
+      <label>Your Rating:</label>
+      <%= text_field_tag "review[rating]" %>
+      <label>Your Review:</label>
+      <%= text_field_tag "review[body]" %>
+
+
+      <%= f.submit 'Submit' , :class => 'button submit-button' %>
+    <% end %>
+
+  </div>
+</div>
+

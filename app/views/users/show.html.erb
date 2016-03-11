@@ -1,0 +1,65 @@
+<div id="profile-page">
+
+<div class="profile-header">
+  <div class="row">
+    <div class="medium-12 columns">
+    <%= image_tag @user.photo %>
+    </div>
+  </div>  
+</div>
+
+  
+<div class="profile-main-info">
+  <div class="row">
+    <h2><%= @user.name %></h2>
+    <h4><i class="fa fa-map-marker">&nbsp;</i> <%= @user.location %></h4>
+  </div>
+</div>
+
+
+
+
+<div class="profile-stats"> 
+  <div class="row">
+    <div class="medium-8 columns">
+      <%= @user.reviews.count %> reviews | 
+      <%= @user.pubs.uniq.count %> check-ins
+    </div>
+    
+    
+    <div class="medium-4 columns">
+      <% if !current_user %>
+        
+      <% elsif current_user.id != @user.id %>
+
+       <% # if current_user.id == @user.id 
+       %>
+       <% else %>
+        <%= link_to 'Edit Profile', edit_profile_path %>        
+      <% end %>   
+    </div>
+    
+   
+
+  </div>
+
+</div>
+
+
+<% @user.reviews.each do |r| %>
+  <div class="row profile-beer-log">
+    <div class="small-2 columns">
+      <%= image_tag @user.photo %>
+    </div>
+    <div class="small-10 columns">
+      <%= @user.name %> is drinking <%= link_to r.beer.name, beer_path(r.beer) %> at  <%= link_to r.pub.name, pub_path(r.pub) %>.
+      <br>
+      <%= @user.gender.subject.capitalize %> has given it <%= r.rating %> stars and says 
+
+      <div class="talkbubble">
+        "<%= r.body %>"
+        </div>
+    </div>
+  </div>
+  <% end %>
+</div> <!-- # End of .profile-page -->

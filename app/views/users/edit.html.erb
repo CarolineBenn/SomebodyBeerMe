@@ -1,0 +1,37 @@
+<div class="pub-page-header">
+  <div class="row">
+    <div class="medium-12 columns">
+      <h1>Edit Your Profile</h1>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="medium-6 medium-centered columns">
+
+    <%= form_for @user do |f| %>
+
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, required: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :location %>
+        <%= f.text_field :location %>
+      </div>
+
+      <div class="field">
+        <%= f.label :photo %>
+        <%= f.text_field :photo %>
+      </div>
+
+      <div class="field">        
+        <%= f.label :gender %>
+        <%= f.collection_select :gender, @gender, :to_s, :to_s %>
+      </div>
+    <%= f.submit 'Submit' , :class => 'button submit-button' %>
+    <% end %>
+  </div>
+</div>

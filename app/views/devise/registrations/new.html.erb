@@ -1,0 +1,63 @@
+<div class="register-page">
+  <div class="pub-page-header">
+    <div class="row">
+      <div class="medium-12 columns">
+        <h1>Register</h1>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row" style="margin-bottom: 0">
+    <div class="medium-6 columns">
+      <h2>Benefits of Joining</h2>
+      <p>Some marketing fluff about beer</p>
+      <h2>Keep a log of what you drink</h2>
+      <p>Some more marketing fluff about using SBM to find new beers</p>
+      <h2>Share</h2>
+      <p>Don't talk to your friendsin the pub - log drinks on your phone instead!  </p>
+    </div>
+    <div class="medium-4 columns end">
+
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field">
+          <%= f.text_field :name, autofocus: true, placeholder: 'Name' %>
+        </div>
+
+        <div class="field">
+          <%= f.email_field :email, placeholder: 'Email' %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :location, placeholder: 'Location' 
+          %>
+        </div>
+
+        <div class="field">
+          <% @gender = ["M", "F"] %>
+          <%= f.collection_select :gender, @gender, :to_s, :to_s %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "off", placeholder: 'Password, 8 Characters Min' %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm Password' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: 'button submit-button' %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+
+
+      </div>
+    </div>
+
+</div>

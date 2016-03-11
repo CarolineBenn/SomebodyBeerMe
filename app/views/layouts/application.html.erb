@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Somebody Beer Me" %></title>
+
+ 
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Raleway:700,400' %>
+
+
+    <%= stylesheet_link_tag "application" %>
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <%= javascript_include_tag "vendor/modernizr" %>    
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+ <body class="<%= @homepage ? 'homepage' : ''%>">
+    <%= render 'partials/header' %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<div class="row">
+  <div class="medium-6 medium-centered columns search-box">
+    <%= form_tag('/beers/search') do %>
+      <%= text_field_tag :name_query, nil, :placeholder => 'Type here to search for a beer'%>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+√ 1) Change the name of the user_controller to users_controller
+
+√ 2) Sort out why the pushy menu doesn't work on any page other than root_path
+
+3) Media queries on SCSS files?
+
+4) How can a user skip leaving a review if they've already left one in the past?
+
+5) Add iconography into link_to elements
+
+
+
+## COLORS: ##
+  primary color : ff831c
+    pc-hover: d86200 
+    pc-active/focus: aa4d00
+  secondary color: ffb31c
+    sc-hover: d89000
+    sc-active/focus: aa7100
+
+  cool blue: 234dad
+    cb-hover/active/focus: 0f3691
+  fresh blue: 119c9c
+    fb-hover/active/focus: 006666

@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="medium-12 columns">
+    <h1>Pubs#new</h1>
+    <p>Find me in app/views/pubs/new.html.erb</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="medium-4 columns">
+   
+    <%= form_for @pub do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :photo, "Photo URL" %>
+      <%= f.text_field :photo %>
+
+      <%= f.submit %>
+    <% end %>
+
+   
+  </div>
+</div>
