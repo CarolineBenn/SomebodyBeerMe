@@ -1,5 +1,3 @@
-```
-
 # Somebody Beer Me #
 <br>
 ## Discover your new favourite beer! ##
@@ -37,6 +35,3 @@ I had quite a clear idea of what I wanted, so I have a few sketches of various p
 - Devise
 - Pushy Menu
 - jQuery
-
-
-```
