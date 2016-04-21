@@ -1,7 +1,7 @@
 # Somebody Beer Me #
 <br>
 ## Discover your new favourite beer! ##
-<hr>
+
 ### What is Somebody Beer Me? ###
 <br>
 Somebody Beer Me is an app that uses your location services to find nearby places to drink and what drinks they have. Using Google Places API it returns the nearest 20 pubs and bars. The user can browse the pubs, their beers and let others know what they think when they check in!
